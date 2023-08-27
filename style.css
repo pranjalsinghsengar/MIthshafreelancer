@@ -1,0 +1,448 @@
+:root {
+
+    /* fonts */
+    --font-inter: Inter;
+    
+    /* font sizes */
+    --font-size-base: 1rem;
+    --font-size-13xl: 2rem;
+    --font-size-25xl: 2.75rem;
+    --font-size-3xl-9: 1.2rem;
+    --font-size-8xl-8: 1.74rem;
+    --font-size-9xl: 1.75rem;
+    --font-size-10xl-9: 1.87rem;
+    --font-size-29xl: 3rem;
+    --font-size-xs: 0.75rem;
+    --font-size-mini-6: 0.91rem;
+    --font-size-xs-8: 0.74rem;
+    --font-size-mini-4: 0.9rem;
+    --font-size-smi-9: 0.81rem;
+    --font-size-xl-9: 1.31rem;
+    --font-size-11xl-9: 1.93rem;
+    --font-size-8xl: 1.69rem;
+    
+    /* Colors */
+    --color_white: #fff;
+    --color_black: #000;
+    --bgColor:#FF9327;
+    --color_mediumblue: #1c40fe;
+    --color_royalblue: #1c76fe;
+    --color_gray-100: #fefefe;
+    --color_gray-200: #fafafa;
+    --color_gray-300: rgba(255, 255, 255, 0.38);
+    --color_gray-400: rgba(255, 255, 255, 0.23);
+    --color_powderblue: #cde7eb;
+    --color_snow-100: #fffcfc;
+    --color_snow-200: #fffbfb;
+    
+    /* Gaps */
+    --gap-6xl: 1.56rem;
+    
+    /* Paddings */
+    --padding-5xs-1: 0.44rem;
+    --padding-xl: 1.25rem;
+    
+    /* border radiuses */
+    --br-xs: 12px;
+    --br-5xs-9: 7.9px;
+    --br-18xl-9: 37.9px;
+    --br-67xl-6: 86.6px;
+    --br-mini-9: 14.9px;
+    --br-2xs: 11px;
+    
+    }
+
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  /* Styles for NavbarWrapper */
+.navbar {
+    width: 100%;
+    background-color: var(--bgColor);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: static;
+    top: 0;
+    z-index: 999;
+    /* display: none; */
+  }
+  
+  /* Styles for NavbarLogo */
+  .navbar-logo  {
+    /* Add styles for the logo */
+    width:25%;
+    height:100%;
+  /*   border:1px solid green; */
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    /* justify-content: space-around; */
+  }
+  .nav-logo{
+      height:50px;
+    }
+  
+  /* Styles for NavItemsWrapper */
+  .nav-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width:50%;
+    height: 100%;
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+  /*   border:1px solid grey; */
+    align-items: center;
+  }
+
+  
+  .items{
+      color: #ffffff;
+      font-size: 1.2rem
+    }
+    @media (max-width:965px) {
+      .items{
+          font-size: 1rem;
+      }
+    }
+  
+  .nav-items li {
+    cursor: pointer;
+    margin: 5px 0;
+  }
+  
+  /* Styles for HamBerger */
+  .ham-berger {
+      display: none;
+      cursor: pointer;
+    }
+    @media (max-width:800px) {
+       .ham-berger{
+           display: block;
+           display: flex;
+           flex-direction: column;
+           /* position: fixed; */
+           z-index: 999;
+           gap: 8px;
+       }
+       .nav-items {
+        display: none;
+       }
+    }
+    /* .MenuItemsWrapper{
+        display: none;
+    } */
+    @media (max-width: 800px) {
+        .MenuItemsWrapper{
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: block;
+          display: flex;
+          flex-direction: column;
+          justify-content: center
+          ;align-items: center;
+          height: 400px;    
+          /* float: bottom; */
+          /* z-index: 999; */
+        }
+      }
+    
+  
+  /* Styles for HamSpan */
+  .ham-span {
+    width: 30px;
+    height: 2px;
+    background: white;
+    margin-right: 10px;
+  }
+  
+  /* Styles for MenuContainer */
+  .menu-container {
+    width: 40%;
+    height: 400px;
+    position: absolute;
+    position: fixed;
+    right: 0;
+    background: #0000ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    z-index: 50;
+  }
+
+.MenuContentContainer{
+  width: 40%;
+  height: 400px;
+  position: absolute;
+  position: fixed;
+  right: 0;
+  /* background: #0000ff; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  z-index: 50;
+  /* background: #1c40fe; */
+
+
+}
+.MenuItemContainer{
+  display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.MenuItemsWrapper {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    height: 500px;
+    background-color: #f0f0f0;
+    padding: 20px;
+    margin-top: 20px;
+    display: none;
+}
+
+
+
+
+
+  /* -------------------------- */
+
+
+  .container {
+    width: 80%;
+    height: 40%;
+    margin: 20px 0;
+    /* background-color: pink; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+  }
+  
+  @media (max-width: 600px) {
+    .container {
+      flex-direction: column-reverse;
+      width: 100%;
+    }
+  }
+  
+  .left-container, .right-container {
+    width: 45%;
+    /* height: 80%; */
+    /* background-color: blue; */
+    @media (max-width: 600px) {
+      width: 90%;
+    }
+  }
+  
+  .left-container {
+    font-size: 1rem;
+    @media (max-width: 600px) {
+      font-size: 0.7rem;
+    }
+  }
+  
+  .right-container img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .h1 {
+    color: var(--bgColor);
+    /* font-size: 3rem; */
+    font-weight: 900;
+    font-size: 1.5rem;
+    @media (max-width: 600px) {
+      margin-top: 10px;
+    }
+  }
+  
+  .p {
+    @media (max-width: 600px) {
+      margin: 5px 0;
+    }
+  }
+  
+  /* Styles for the ObjectiveContainer */
+.objective-container {
+    width: 80%;
+    margin: 20px 0;
+  }
+  
+  .h1 {
+    color: var(--bgColor);
+    font-weight: 900;
+    font-size: 1.5rem;
+  }
+  
+  .object-pera {
+    margin: 10px 0;
+  }
+  
+  /* Styles for Directors */
+  .director {
+    margin: 20px 0;
+  }
+  
+  /* Styles for AddressContainer */
+  .address-container {
+    margin-top: 20px;
+  }
+  
+  h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  /* Styles for DirectorContainer */
+.director-container {
+    width: 100%;
+    padding: 50px 0;
+    background: powderblue;
+    margin: 10px 0;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 1.3rem;
+  }
+  
+.director-container img{
+ width: 20%;
+  }
+  
+  @media (max-width: 600px) {
+    .director-container {
+      width: 90%;
+      padding: 40px 0;
+    }
+  }
+  
+  /* Styles for ImageControl */
+  .image-control {
+    width: 30%;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  
+  @media (max-width: 600px) {
+    .image-control {
+      width: 25%;
+    }
+  }
+  
+  /* Styles for DirectorName */
+  .director-name {
+    font-size: 1.3rem;
+  }
+  
+  @media (max-width: 600px) {
+    .director-name {
+      font-size: 1.5rem;
+    }
+  }
+
+  /* Styles for FormContainer */
+.form-container {
+    width: 80%;
+    height: 40%;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+  }
+  
+  @media (max-width: 600px) {
+    .form-container {
+      width: 100%;
+    }
+  }
+  
+  /* Styles for LeftContainer */
+  .left-container img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Styles for RightContainer */
+  .right-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  
+  /* Styles for ClickHereContainer */
+  .click-here-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Styles for ClickHere */
+  .click-here {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 50px;
+    border-radius: 50px;
+    font-size: 1.5rem;
+    background: var(--bgColor);
+    margin: 20px 0;
+  }
+  
+  @media (max-width: 600px) {
+    .click-here {
+      font-size: 1rem;
+      margin: 10px;
+    }
+  }
+
+  /* Styles for LogoContainer */
+.logo-container {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+  }
+  
+  /* Styles for WhatsappImage */
+  .whatsapp-image {
+    position: relative;
+    width: 20%;
+    object-fit: cover;
+  }
+  
+  /* Styles for MithshaVyaparSanchar */
+  .mithsha-vyapar-sanchar {
+    position: relative;
+    font-weight: 600;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+  
+  @media (max-width: 600px) {
+    .mithsha-vyapar-sanchar {
+      font-size: 1rem;
+    }
+  }
+  

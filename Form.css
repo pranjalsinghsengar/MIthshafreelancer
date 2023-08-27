@@ -1,0 +1,146 @@
+/* Container */
+.Container {
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+    /* position: relative; */
+  }
+  @media (max-width: 800px) {
+    .Container {
+      font-size: 0.7rem;
+    max-width: 100%;
+    }
+    label{
+    font-size:0.8rem;
+    }
+  }
+
+  
+  /* FormGroup */
+  .FormGroup {
+    margin-bottom: 20px;
+  }
+  
+  /* Label */
+  Label {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  /* Input, Select, TextArea */
+  input,
+  Select {
+    width:calc(100% - 10px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  TextArea{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* ErrorMessageStyled */
+  .ErrorMessageStyled {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  
+  /* Button */
+  button {
+    padding: 5px 10px;
+    background: var(--bgColor);
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Table */
+  table {
+    width: 100%;
+    /* border-collapse: collapse; */
+    /* margin-top: 20px; */
+  }
+  
+  /* TableHeader */
+  .TableHeader {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    background-color: #f0f0f0;
+  }
+  td input{
+    width: 80%;
+    /* margin: 0 10px; */
+  }
+  
+  /* TableCell */
+  .TableCell {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  /* CheckBox */
+  .CheckBox {
+    width: 15px;
+    height: 15px;
+    border: 2px solid black;
+    border-radius: 50px;
+  }
+  
+  /* Option */
+  .Option {
+    display: flex;
+    align-items: center;
+   /* justify-content: center; */
+    gap: 10px;
+    margin: 0 12px;
+  }
+  
+  /* CheckedText */
+  .CheckedText {
+    /* Add your styling for CheckedText here */
+  }
+  
+  /* BackBTn */
+  .BackBTn {
+    position: absolute;
+    left: 10px;
+    font-size: 1rem;
+    z-index: 50;
+    border: 1px solid black;
+  }
+  
+.Referral{
+    width: 20%;
+    border-radius: 5px;
+    
+
+}
+.Referral input{
+    border: 2px solid rgb(243, 146, 76);
+    
+
+}
+
+@media (max-width: 600px) {
+    .Referral{
+        width: 80%;
+    }
+  }
+  
+
+  .submitbtn{
+    font-size: 1.2rem;
+padding: 15px 30px;
+    background: rgb(243, 146, 76);
+    /* border: 1px solid saddlebrown; */
+  }
