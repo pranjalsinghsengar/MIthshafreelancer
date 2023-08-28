@@ -10,10 +10,15 @@
 
 <body>
 
-    <div id="languageToggle">
-        <button id="englishBtn">English</button>
-        <button id="hindiBtn">Hindi</button>
+    <div id="languagePopup" class="popup">
+        <h2>Select Language:</h2>
+        <div>
+
+            <button onclick="changeLanguage('english')">English</button>
+            <button onclick="changeLanguage('hindi')">Hindi</button>
+        </div>
       </div>
+    
     
 
 
@@ -70,8 +75,8 @@
                 <img src="./images/Frame 57.png" alt="">
             </div>
             <div class="right-container">
-                <div class="click-here-container">
-                    <h1>Fill The Form To Apply</h1>
+                <div class="click-here-container" >
+                    <h1 id="fillform">Fill The Form To Apply</h1>
                     <a href="Form.html" class="click-here">Apply</a>
                 </div>
             </div>
