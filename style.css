@@ -449,6 +449,7 @@
 
   .popup{
     position: absolute;
+    position:fixed;
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
@@ -473,7 +474,7 @@
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.431);
     margin: 0 10px;
   }
-  @media screen {
+  @media (max-width: 600px)  {
     .popup{
 width: 80%;
     }
