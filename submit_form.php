@@ -25,9 +25,9 @@ if(isset($_POST['password-reset-token']) && $_POST['email'])
         // enable SMTP authentication
         $mail->SMTPAuth = true;                  
         // GMAIL username
-        $mail->Username = "mistorekanpur100@gmail.com";
+        $mail->Username = "Your-email-address";
         // GMAIL password
-        $mail->Password = "amazonrj";
+        $mail->Password = "Your-email-password";
         $mail->SMTPSecure = "ssl";  
         // sets GMAIL as the SMTP server
         $mail->Host = "smtp.gmail.com";
