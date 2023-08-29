@@ -32,6 +32,23 @@ const contentElements = {
 const englishBtn = document.getElementById("englishBtn");
 const hindiBtn = document.getElementById("hindiBtn");
 //
+// window.scroll({
+//   top: 2500, 
+//   left: 0, 
+//   behavior: 'smooth'
+// });
+
+// // Scroll certain amounts from current position 
+// window.scrollBy({ 
+//   top: 100, // could be negative value
+//   left: 0, 
+//   behavior: 'smooth' 
+// });
+
+
+
+
+
 
 const hindiTranslations = {
   englishBtn: "अंग्रेज़ी",
@@ -63,7 +80,7 @@ const englishTranslations = {
   HeadingProgramme: "Programme",
   PeraProgramme:
     "Under Mitsha Vyapar Sanchar Pvt. Ltd., we want to increase the business of local industries and contract with national and multinational companies to become a means of conveying information about their products and schemes to the residents of remote villages and towns, so that more and more people can be benefited.",
-    HeadingProgramme: "Mission",
+    HeadingMission: "Mission",
     PeraMission:
     " Mitsha Vyapar Sanchar Pvt. Ltd. aims at developing the capability of providing such a platform which can organize the youth of remote villages and towns of India and make them self-reliant. We understand that the future of a nation is decided by the youth of that nation, a nation will develop only when every hand has work and every citizen is self-reliant and fulfills his responsibility and will contribute in the building of the nation.",
   HeadingVision: "Vision",

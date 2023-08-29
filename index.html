@@ -32,12 +32,12 @@
         </div>
 
         <ul class="nav-items">
-            <li class="items" onclick="scrollToContent('certificate')">Certificate</li>
-            <li class="items" onclick="scrollToContent('About')">About</li>
-            <li class="items" onclick="scrollToContent('Programme')">Programme</li>
-            <li class="items" onclick="scrollToContent('Mission')">Mission</li>
-            <li class="items" onclick="scrollToContent('Vision')">Vision</li>
-            <li class="items" onclick="scrollToContent('Directors')">Directors</li>
+            <li class="items"  onclick="scrollToContent('certificate')"> <a href="#Certificate"> Certificate </a></li>
+            <li class="items"  onclick="scrollToContent('About')">  <a href="#About">    About </a></li>
+            <li class="items"  onclick="scrollToContent('Programme')"> <a href="#Programme"> Programme </a></li>
+            <li class="items"  onclick="scrollToContent('Mission')"> <a href="#Mission"> Mission </a></li>
+            <li class="items"  onclick="scrollToContent('Vision')"> <a href="#Vision"> Vision </a></li>
+            <li class="items" onclick="scrollToContent('Directors')"> <a href="#Directors"> Directors </a></li>
         </ul>
 
         <!-- <div class="ham-berger" onclick="toggleMenuBar()">
@@ -61,7 +61,7 @@
         </div> -->
     </div>
 
-    <div
+    <div class="mainContainer"
         style="width: 100%; display: flex; align-items: center; flex-direction: column; gap: 10px; position: relative;">
 
         <!-- <div class="logo-container">
@@ -72,7 +72,7 @@
         </div> -->
 
         <div class="form-container" id="formContainer">
-            <div class="left-container">
+            <div class="left-container" id="Certificate">
                 <img src="./images/Frame 57.png" alt="">
             </div>
             <div class="right-container">
@@ -84,7 +84,7 @@
         </div>
         <!-- Container -->
         <div class="container" id="container">
-            <div class="left-container">
+            <div class="left-container" id="About">
                 <h1 class="h1" id="HeadingAbout">About</h1>
                 <p class="p" id="PeraAbout">
                       Mitsha Vyapar Sanchar Pvt. Ltd. has been formed keeping in view the increasing unemployment and lack of skill (SKILL) among the youth of India. Realizing its social responsibilities, Mitsha Vyapar Sanchar Pvt. Ltd. dreams of increasing self-reliance and providing skills to many other unemployed youth, Rohit Srivastava and Ashish Pratap Singh formed Mitsha Vyapar Sanchar Pvt. It has been done with the aim of fulfilling the responsibilities and making the youth self-reliant.
@@ -97,7 +97,7 @@
         <!-- ===== -->
         <!-- Container -->
         <div class="container" id="container"  style="flex-direction: row-reverse;" >
-            <div class="left-container">
+            <div class="left-container" id="Programme">
                 <h1 class="h1" id="HeadingProgramme">Programme</h1>
                 <p class="p" id="PeraProgramme">
                     Under Mitsha Vyapar Sanchar Pvt. Ltd., we want to increase the business of local industries and contract with national and multinational companies to become a means of conveying information about their products and schemes to the residents of remote villages and towns, so that more and more people can be benefited. 
@@ -110,7 +110,7 @@
         <!-- ===== -->
         <!-- Container -->
         <div class="container" id="container" >
-            <div class="left-container">
+            <div class="left-container" id="Mission">
                 <h1 class="h1" id="HeadingMission">Mission</h1>
                 <p class="p" id="PeraMission">
                     Mitsha Vyapar Sanchar Pvt. Ltd. aims at developing the capability of providing such a platform which can organize the youth of remote villages and towns of India and make them self-reliant. We understand that the future of a nation is decided by the youth of that nation, a nation will develop only when every hand has work and every citizen is self-reliant and fulfills his responsibility and will contribute in the building of the nation.
@@ -123,7 +123,7 @@
         <!-- ===== -->
         <!-- Container -->
         <div class="container" id="container" style="flex-direction: row-reverse;">
-            <div class="left-container">
+            <div class="left-container" id="Vision">
                 <h1 class="h1" id="HeadingVision">Vision</h1>
                 <p class="p" id="PeraVision">
                     We aim to build a trusted brand with high quality and innovative approach, that understands the needs of its people and systematically caters to them to achieve optimum results.
@@ -141,14 +141,14 @@
                 <!-- Directors will be added dynamically using JavaScript -->
                 <img src='./images/Frame 277.png' alt='' />
         
-                <p>Ashish Pratap Singh</p>
+                <p  id="Directors">Ashish Pratap Singh</p>
             
             </div>
             <div class="director-container" id="directorContainer">
                 <!-- Directors will be added dynamically using JavaScript -->
                 <img src='./images/Anuradha.png' alt='' />
         
-                <p>Anuradha Srivastava</p>
+                <p >Anuradha Srivastava</p>
             
             </div>
 
@@ -164,6 +164,9 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+// 
+    </script>
 </body>
 
 </html>
