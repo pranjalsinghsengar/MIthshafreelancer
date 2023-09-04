@@ -11,6 +11,8 @@
 </head>
 
 <body>
+  <form id="applicationForm" method="post" action="submit_form.php">
+
   <div class="Container TextSmall">
     <a class="Link" href="/">
       <button class="BackBTn">
@@ -60,11 +62,11 @@
       </div>
 
 
-      <form id="applicationForm" method="post" action="submit_form.php">
+      <!-- <form > -->
         <input id="Form_Type" type="hidden" name="Form_Type" />
         <div style="margin-bottom: 20px">
           <label style="display: block">Upload Your Image</label>
-          <input placeholder="Image" type="file" name="UserImage" accept="image/*" />
+          <input placeholder="Image" type="file" name="UserImage" accept="image/*" id="imageInput"   />
           <!-- <div style="color: red">{Error Message Goes Here}</div> -->
         </div>
 
@@ -352,21 +354,26 @@
             Pay Rs.232
           </button>
         </div>
-      </form>
+      <!-- </form> -->
 
       
     </div>
+  </form>
+
     <script type="text/javascript">
       function handleCheckboxClick(checkboxType) {
   const vyaparMitraCheckbox = document.querySelector("[onclick*='VyaparMitra']");
   const superVisiorCheckbox = document.querySelector("[onclick*='SuperVisior']");
+  const formTypeInput = document.getElementById("Form_Type");
 
   if (checkboxType === "VyaparMitra") {
     vyaparMitraCheckbox.checked = true;
     superVisiorCheckbox.checked = false;
+    formTypeInput.value = "VyaparMitra"; // Set the value to "VyaparMitra"
   } else if (checkboxType === "SuperVisior") {
     superVisiorCheckbox.checked = true;
     vyaparMitraCheckbox.checked = false;
+    formTypeInput.value = "SuperVisior"; // Set the value to "SuperVisior"
   }
 }
 
@@ -378,34 +385,48 @@
 
 
         if (form) {
-          form.addEventListener("submit", async function (event) {
-            event.preventDefault();
-            const formData = new FormData(form);
-            const formDataObject = {};
+  form.addEventListener("submit", async function (event) {
+    event.preventDefault();
+    
+    const formData = new FormData(form);
+    const formDataObject = {};
 
-            formData.forEach((value, key) => {
-              formDataObject[key] = value;
-            });
+    formData.forEach((value, key) => {
+      formDataObject[key] = value;
+    });
 
-           // Update the Form_Type value before submitting
+    // Add image files to the FormData
+    const imageInput = document.getElementById("imageInput"); // Replace with your input element's ID
+    if (imageInput && imageInput.files.length > 0) {
+      for (let i = 0; i < imageInput.files.length; i++) {
+        const file = imageInput.files[i];
+        formData.append("images", file); // 'images' should match the field name in your spreadsheet
+      }
+    }
 
-            try {
-              const response = await axios.post(
-                "https://sheet.best/api/sheets/7d33220f-660f-4e5f-82bc-b49e513a85ab",
-                formDataObject
-              );
-
-              console.log("Data saved successfully:", response.data);
-              window.location.href = "success.html";
-              // Redirect to a success page or perform other actions
-            } catch (error) {
-              console.error("Error saving data:", error);
-              // Handle the error appropriately
-            }
-          });
-        } else {
-          console.error("Form element not found");
+    try {
+      const response = await axios.post(
+        "https://sheet.best/api/sheets/7d33220f-660f-4e5f-82bc-b49e513a85ab",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data", // Ensure proper content type for file upload
+          },
         }
+      );
+
+      console.log("Data saved successfully:", response.data);
+      window.location.href = "success.html";
+      // Redirect to a success page or perform other actions
+    } catch (error) {
+      console.error("Error saving data:", error);
+      // Handle the error appropriately
+    }
+  });
+} else {
+  console.error("Form element not found");
+}
+
       });
     </script>
     <script src="./script.js"></script>

@@ -257,6 +257,7 @@
   
   @media (max-width: 600px) {
     .container {
+      /* color:; */
       flex-direction: column-reverse;
       width: 100%;
     }
