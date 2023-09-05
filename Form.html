@@ -13,21 +13,21 @@
 <body>
   <form id="applicationForm" method="post" action="submit_form.php">
 
-  <div class="Container TextSmall">
-    <a class="Link" href="/">
-      <button class="BackBTn">
-        <div>Back</div>
-      </button>
-    </a>
-    <div style="
+    <div class="Container TextSmall">
+      <a class="Link" href="/">
+        <button class="BackBTn">
+          <div>Back</div>
+        </button>
+      </a>
+      <div style="
           display: flex;
           align-items: center;
           justify-content: center;
           width: 100%;
         ">
-      <img alt="" style="width: 80%" src="/bottom-img-1@2x.png" />
-    </div>
-    <div style="
+        <img alt="" style="width: 80%" src="/bottom-img-1@2x.png" />
+      </div>
+      <div style="
           display: flex;
           align-items: center;
           justify-content: center;
@@ -38,47 +38,37 @@
         ">
 
 
-      <label class="Label">APPLICATION FORM FOR APPOINTMENT ON THE</label>
+        <label class="Label">APPLICATION FORM FOR APPOINTMENT ON THE</label>
 
-      <div class="Option">
-        <input
-        placeholder="checkbox"
-        class="CheckBox"
-        type="checkbox"
-        style="background: none"
-        onclick="handleCheckboxClick('VyaparMitra')"
-      />
-        <span class="CheckedText">VYAPARMITRA</span>
-      </div>
-      <div class="Option">
-        <input
-        placeholder="checkbox"
-        class="CheckBox"
-        type="checkbox"
-        style="background: none"
-        onclick="handleCheckboxClick('SuperVisior')"
-      />
-        <span class="CheckedText">SUPERVISIOR</span>
-      </div>
+        <div class="Option">
+          <input placeholder="checkbox" class="CheckBox" type="checkbox" style="background: none"
+            onclick="handleCheckboxClick('VyaparMitra')" />
+          <span class="CheckedText">VYAPARMITRA</span>
+        </div>
+        <div class="Option">
+          <input placeholder="checkbox" class="CheckBox" type="checkbox" style="background: none"
+            onclick="handleCheckboxClick('SuperVisior')" />
+          <span class="CheckedText">SUPERVISIOR</span>
+        </div>
 
 
-      <!-- <form > -->
-        <input id="Form_Type" type="hidden" name="Form_Type" />
+        <!-- <form > -->
+        <input id="Form_Type" type="hidden" name="Form_Type" required />
         <div style="margin-bottom: 20px">
           <label style="display: block">Upload Your Image</label>
-          <input placeholder="Image" type="file" name="UserImage" accept="image/*" id="imageInput"   />
+          <input placeholder="Image" type="file" name="UserImage" accept="image/*" id="imageInput" />
           <!-- <div style="color: red">{Error Message Goes Here}</div> -->
         </div>
 
         <div style="margin-bottom: 20px">
           <label style="display: block">Full Name</label>
-          <input placeholder="Full Name"  type="text" name="FullName" />
+          <input placeholder="Full Name" type="text" name="FullName" />
           <!-- <div style="color: red">{Error Message Goes Here}</div> -->
         </div>
 
         <div style="margin-bottom: 20px">
           <label style="display: block">Email</label>
-          <input placeholder="E mail"  type="email" name="email" />
+          <input placeholder="E mail" type="email" name="email" />
           <!-- <div style="color: red">{Error Message Goes Here}</div> -->
         </div>
 
@@ -88,12 +78,12 @@
           <div class="FormGroup" style="width: 60%;">
             <label>Aadhar Number</label>
 
-            <input placeholder="aadhar Number"  type="text" name="aadhar_Number" value="" style="width: 70%" />
+            <input placeholder="aadhar Number" type="text" name="aadhar_Number" value="" style="width: 70%" />
           </div>
           <div class="FormGroup">
             <label>Phone Number</label>
 
-            <input placeholder="phone Number"  type="number" name="phone_Number" value=" " style="width: 50%" />
+            <input placeholder="phone Number" type="number" name="phone_Number" value=" " style="width: 50%" />
           </div>
 
         </div>
@@ -101,7 +91,7 @@
         <!-- ... (other form fields) -->
         <div class="FormGroup">
           <label for="fathersName">Father's Name</label>
-          <input  placeholder="Father's Name" type="text" name="fathers_Name" value="" />
+          <input placeholder="Father's Name" type="text" name="fathers_Name" value="" />
           <div class="ErrorMessageStyled" name="fathersName" component="div"></div>
         </div>
         <!--  -->
@@ -136,19 +126,18 @@
           <div style="width: 48%">
             <div class="FormGroup">
               <label>Permanent Address</label>
-              <textarea placeholder="permanent Address"  name="permanentAddress" rows="8"
-                style="width: 100%"></textarea>
+              <textarea placeholder="permanent Address" name="permanentAddress" rows="8" style="width: 100%"></textarea>
             </div>
             <!-- ... (other fields) -->
             <div style="display: flex; justify-content: space-between">
               <div style="margin-right: 10px">
                 <label for="permanentState">State</label>
-                <input  placeholder="State" name="permanentState" value=""></input>
+                <input placeholder="State" name="permanentState" value=""></input>
                 <div name="permanentState" class="ErrorMessageStyled" component="div"></div>
               </div>
               <div>
                 <label for="permanentDistrict">District</label>
-                <input placeholder="District"  name="permanentDistrict" rows="8" value=""></input>
+                <input placeholder="District" name="permanentDistrict" rows="8" value=""></input>
                 <div name="permanentDistrict" class="ErrorMessageStyled" component="div"></div>
               </div>
             </div>
@@ -156,7 +145,7 @@
             <div style="display: flex; justify-content: space-between">
               <div style="margin-right: 10px">
                 <label for="permanentPincode">Pincode</label>
-                <input  placeholder="Pincode" type="number" name="permanentPincode"
+                <input placeholder="Pincode" type="number" name="permanentPincode"
                   value="{{formData.permanentPincode}}" />
                 <div name="permanentPincode" class="ErrorMessageStyled" component="div"></div>
               </div>
@@ -167,14 +156,14 @@
         <!-- ... (remaining form fields) -->
         <div class="FormGroup">
           <label for="dob">Date of Birth</label>
-          <input  placeholder="Date" type="date" name="dob" value="{{formData.dob}}" />
+          <input placeholder="Date" type="date" name="dob" value="{{formData.dob}}" />
           <div name="dob" class="ErrorMessageStyled" component="div"></div>
         </div>
 
         <div style="display: flex; justify-content: space-between">
           <div class="FormGroup">
             <label>Category:</label>
-            <select title="select"  name="Catagory" value="formData.castType" style="width: 48%">
+            <select title="select" name="Catagory" value="formData.castType" style="width: 48%">
               <option value="">Select Type</option>
               <option value="sc">SC</option>
               <option value="st">ST</option>
@@ -184,7 +173,7 @@
           </div>
           <div class="FormGroup">
             <label>Marital Status:</label>
-            <select title="select"  name="marital_Status" value="formData.maritalStatus" style="width: 48%">
+            <select title="select" name="marital_Status" value="formData.maritalStatus" style="width: 48%">
               <option value="">Select Marital Status</option>
               <option value="married">Married</option>
               <option value="unmarried">Unmarried</option>
@@ -338,8 +327,9 @@
         <div class="FormGroup">
           <label style="display: flex">
             <input class="CheckBox" type="checkbox" checked="TermCondition" />
-            <p style="margin-left: 10px" ><a href="Terms.html" class="click-here">I agree to the terms and conditions </a></p>
-            
+            <p style="margin-left: 10px"><a href="Terms.html" class="click-here">I agree to the terms and conditions
+              </a></p>
+
           </label>
         </div>
 
@@ -354,82 +344,82 @@
             Pay Rs.232
           </button>
         </div>
-      <!-- </form> -->
+        <!-- </form> -->
 
-      
-    </div>
+
+      </div>
   </form>
 
-    <script type="text/javascript">
-      function handleCheckboxClick(checkboxType) {
-  const vyaparMitraCheckbox = document.querySelector("[onclick*='VyaparMitra']");
-  const superVisiorCheckbox = document.querySelector("[onclick*='SuperVisior']");
-  const formTypeInput = document.getElementById("Form_Type");
+  <script type="text/javascript">
+    function handleCheckboxClick(checkboxType) {
+      const vyaparMitraCheckbox = document.querySelector("[onclick*='VyaparMitra']");
+      const superVisiorCheckbox = document.querySelector("[onclick*='SuperVisior']");
+      const formTypeInput = document.getElementById("Form_Type");
 
-  if (checkboxType === "VyaparMitra") {
-    vyaparMitraCheckbox.checked = true;
-    superVisiorCheckbox.checked = false;
-    formTypeInput.value = "VyaparMitra"; // Set the value to "VyaparMitra"
-  } else if (checkboxType === "SuperVisior") {
-    superVisiorCheckbox.checked = true;
-    vyaparMitraCheckbox.checked = false;
-    formTypeInput.value = "SuperVisior"; // Set the value to "SuperVisior"
-  }
-}
-
-      document.addEventListener("DOMContentLoaded", function () {
-        const form = document.getElementById("applicationForm");
-
-
-        
-
-
-        if (form) {
-  form.addEventListener("submit", async function (event) {
-    event.preventDefault();
-    
-    const formData = new FormData(form);
-    const formDataObject = {};
-
-    formData.forEach((value, key) => {
-      formDataObject[key] = value;
-    });
-
-    // Add image files to the FormData
-    const imageInput = document.getElementById("imageInput"); // Replace with your input element's ID
-    if (imageInput && imageInput.files.length > 0) {
-      for (let i = 0; i < imageInput.files.length; i++) {
-        const file = imageInput.files[i];
-        formData.append("images", file); // 'images' should match the field name in your spreadsheet
+      if (checkboxType === "VyaparMitra") {
+        vyaparMitraCheckbox.checked = true;
+        superVisiorCheckbox.checked = false;
+        formTypeInput.value = "VyaparMitra"; // Set the value to "VyaparMitra"
+      } else if (checkboxType === "SuperVisior") {
+        superVisiorCheckbox.checked = true;
+        vyaparMitraCheckbox.checked = false;
+        formTypeInput.value = "SuperVisior"; // Set the value to "SuperVisior"
       }
     }
 
-    try {
-      const response = await axios.post(
-        "https://sheet.best/api/sheets/7d33220f-660f-4e5f-82bc-b49e513a85ab",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data", // Ensure proper content type for file upload
-          },
-        }
-      );
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById("applicationForm");
 
-      console.log("Data saved successfully:", response.data);
-      window.location.href = "success.html";
-      // Redirect to a success page or perform other actions
-    } catch (error) {
-      console.error("Error saving data:", error);
-      // Handle the error appropriately
-    }
-  });
-} else {
-  console.error("Form element not found");
-}
 
-      });
-    </script>
-    <script src="./script.js"></script>
+
+
+
+      if (form) {
+        form.addEventListener("submit", async function (event) {
+          event.preventDefault();
+
+          const formData = new FormData(form);
+          const formDataObject = {};
+
+          formData.forEach((value, key) => {
+            formDataObject[key] = value;
+          });
+
+          // Add image files to the FormData
+          const imageInput = document.getElementById("imageInput"); // Replace with your input element's ID
+          if (imageInput && imageInput.files.length > 0) {
+            for (let i = 0; i < imageInput.files.length; i++) {
+              const file = imageInput.files[i];
+              formData.append("images", file); // 'images' should match the field name in your spreadsheet
+            }
+          }
+
+          try {
+            const response = await axios.post(
+              "https://sheet.best/api/sheets/7d33220f-660f-4e5f-82bc-b49e513a85ab",
+              formData,
+              {
+                headers: {
+                  "Content-Type": "multipart/form-data", // Ensure proper content type for file upload
+                },
+              }
+            );
+
+            console.log("Data saved successfully:", response.data);
+            window.location.href = "success.html";
+            // Redirect to a success page or perform other actions
+          } catch (error) {
+            console.error("Error saving data:", error);
+            // Handle the error appropriately
+          }
+        });
+      } else {
+        console.error("Form element not found");
+      }
+
+    });
+  </script>
+  <script src="./script.js"></script>
 </body>
 
 </html>
