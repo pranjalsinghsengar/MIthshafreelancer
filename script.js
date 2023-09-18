@@ -33,22 +33,17 @@ const englishBtn = document.getElementById("englishBtn");
 const hindiBtn = document.getElementById("hindiBtn");
 //
 // window.scroll({
-//   top: 2500, 
-//   left: 0, 
+//   top: 2500,
+//   left: 0,
 //   behavior: 'smooth'
 // });
 
-// // Scroll certain amounts from current position 
-// window.scrollBy({ 
+// // Scroll certain amounts from current position
+// window.scrollBy({
 //   top: 100, // could be negative value
-//   left: 0, 
-//   behavior: 'smooth' 
+//   left: 0,
+//   behavior: 'smooth'
 // });
-
-
-
-
-
 
 const hindiTranslations = {
   englishBtn: "अंग्रेज़ी",
@@ -72,7 +67,7 @@ const hindiTranslations = {
 const englishTranslations = {
   englishBtn: "English",
   hindiBtn: "Hindi",
-  fillform:"Fill The Form To Apply",
+  fillform: "Fill The Form To Apply",
   HeadingAbout: "About",
   PeraAbout:
     "Mitsha Vyapar Sanchar Pvt. Ltd. has been formed keeping in view the increasing unemployment and lack of skill (SKILL) among the youth of India. Realizing its social responsibilities, Mitsha Vyapar Sanchar Pvt. Ltd. dreams of increasing self-reliance and providing skills to many other unemployed youth, Rohit Srivastava and Ashish Pratap Singh formed Mitsha Vyapar Sanchar Pvt. It has been done with the aim of fulfilling the responsibilities and making the youth self-reliant.",
@@ -80,8 +75,8 @@ const englishTranslations = {
   HeadingProgramme: "Programme",
   PeraProgramme:
     "Under Mitsha Vyapar Sanchar Pvt. Ltd., we want to increase the business of local industries and contract with national and multinational companies to become a means of conveying information about their products and schemes to the residents of remote villages and towns, so that more and more people can be benefited.",
-    HeadingMission: "Mission",
-    PeraMission:
+  HeadingMission: "Mission",
+  PeraMission:
     " Mitsha Vyapar Sanchar Pvt. Ltd. aims at developing the capability of providing such a platform which can organize the youth of remote villages and towns of India and make them self-reliant. We understand that the future of a nation is decided by the youth of that nation, a nation will develop only when every hand has work and every citizen is self-reliant and fulfills his responsibility and will contribute in the building of the nation.",
   HeadingVision: "Vision",
   PeraVision:
@@ -109,8 +104,8 @@ function changeLanguage(language) {
     } else {
       contentElements[elementId].textContent = hindiTranslations[elementId];
     }
-    const popup = document.getElementById('languagePopup');
-    popup.style.display = 'none';
+    const popup = document.getElementById("languagePopup");
+    popup.style.display = "none";
   }
 
   // if (language === "english") {
@@ -149,9 +144,9 @@ function changeLanguage(language) {
   //   mithshavyaparsanchar.textContent = "मिथशा व्यापार संचार";
   // }
 }
-window.onload = function() {
-  const popup = document.getElementById('languagePopup');
-  popup.style.display = 'block';
+window.onload = function () {
+  const popup = document.getElementById("languagePopup");
+  popup.style.display = "block";
 };
 
 // updateContent(); // Initial content update
@@ -174,28 +169,30 @@ function toggleMenuBar() {
 // });
 
 // Example usage: Assuming you have a button with an id "submitButton"
-function handleSubmit(formData) {
-  // Make a POST request using Axios
-  axios
-    .post(
-      "https://sheet.best/api/sheets/7d33220f-660f-4e5f-82bc-b49e513a85ab",
-      formData
-    )
-    .then((response) => {
-      console.log("Data submitted successfully:", response.data);
-      // Assuming 'router.push' is the function that navigates to a new page
-      router.push("/Submit");
-    })
-    .catch((error) => {
-      console.error("Error submitting data:", error);
-    });
-}
+// function handleSubmit(formData) {
+//   // Make a POST request using Axios
+//   axios
+//     .post(
+//       "https://sheet.best/api/sheets/7d33220f-660f-4e5f-82bc-b49e513a85ab",
+//       formData
+//     )
+//     .then((response) => {
+//       console.log("Data submitted successfully:", response.data);
+//       // Assuming 'router.push' is the function that navigates to a new page
+//       router.push("/Submit");
+//     })
+//     .catch((error) => {
+//       console.error("Error submitting data:", error);
+//     });
+// }
 
 // Example usage: Assuming you have a button with an id "submitButton"
-document
-  .getElementById("submitButton")
-  .addEventListener("click", function (event) {
-    event.preventDefault(); // Prevent the form from submitting
-    const formData = collectFormData(); // Assuming you have a function to collect form data
-    handleSubmit(formData); // Call the function to handle form submission
-  });
+// document
+//   .getElementById("submitButton")
+//   .addEventListener("click", function (event) {
+//     event.preventDefault(); // Prevent the form from submitting
+//     const formData = collectFormData(); // Assuming you have a function to collect form data
+//     handleSubmit(formData); // Call the function to handle form submission
+//   });
+
+
