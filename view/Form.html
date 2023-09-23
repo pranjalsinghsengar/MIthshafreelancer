@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Form</title>
+  <link rel="stylesheet" href="Form.css" />
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  <script src="index.js"></script>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function () {
+      emailjs.init("U4m_K-MeATGFzxI7W");
+    })();
+  </script>
+  <!-- <script>
+
+    const Form_Type = document.getElementById("Form_Type");
+    // Form Data
+    // const name = document.getElementById("name");
+    // const email = document.getElementById("email");
+    // const trasectionId = document.getElementById("trasectionId");
+
+    function se() {
+      var nodemailerFormData = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        trasectionId: document.getElementById("trasectionId").value,
+      };
+      console.log(nodemailerFormData);
+      console.log('submit')
+
+    }
+    console.log('Form_Type')
+    console.log('submit')
+
+
+
+
+
+
+
+  </script> -->
+</head>
+
+<style>
+  .ppp {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+
+
+  .qr,
+  .UPI,
+  .Details {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+    /* display: flex; justify-content: center; align-items: center;  */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    /* display: ; */
+
+  }
+
+  .UPI {
+    display: none;
+  }
+
+  .displaynone {
+    display: block;
+  }
+
+  .paymentpage {
+    display: none;
+    top: 70%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: white;
+  }
+</style>
+
+<body>
+  <?php
+    require("ss.php");
+    ?>
+  <!-- <form id="applicationForm" enctype="multipart/form-data"> -->
+  <!-- <form> -->
+  <div class="Container TextSmall">
+    <a class="Link" href="/">
+      <button class="BackBTn">
+        <div>Back</div>
+      </button>
+    </a>
+    <div style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+        ">
+      <img alt="" style="width: 80%" src="/bottom-img-1@2x.png" />
+    </div>
+    <div style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          margin-top: 40px;
+          flex-direction: column;
+          margin-bottom: 40px;
+          ">
+
+      <div>
+        <label class="Label">APPLICATION FORM FOR APPOINTMENT ON THE</label>
+
+        <div class="Option">
+          <input placeholder="checkbox" class="CheckBox" type="checkbox" style="background: none"
+            onclick="handleCheckboxClick('VyaparMitra')" />
+          <span class="CheckedText">VYAPARMITRA</span>
+        </div>
+        <div class="Option">
+          <input placeholder="checkbox" class="CheckBox" type="checkbox" style="background: none"
+            onclick="handleCheckboxClick('SuperVisior')" />
+          <span class="CheckedText">SUPERVISIOR</span>
+        </div>
+
+
+        <!-- <form > -->
+        <input id="Form_Type" type="hidden" name="Form_Type" required />
+        <div style="margin-bottom: 20px">
+          <label style="display: block">Upload Your Image</label>
+          <input placeholder="Image" type="file" name="UserImage" accept="image/*" id="imageInput" />
+          <!-- <div style="color: red">{Error Message Goes Here}</div> -->
+        </div>
+
+
+
+        <div style="margin-bottom: 20px">
+          <label style="display: block">Full Name</label>
+          <input placeholder="Full Name" type="text" name="FullName" id="name" />
+          <!-- <div style="color: red">{Error Message Goes Here}</div> -->
+        </div>
+
+        <div style="margin-bottom: 20px">
+          <label style="display: block">Email</label>
+          <input placeholder="E mail" type="email" name="email" id="email" required />
+          <!-- <div style="color: red">{Error Message Goes Here}</div> -->
+        </div>
+
+        <!-- ... (previous form fields) -->
+
+        <div style="display: flex; justify-content: space-between">
+          <div class="FormGroup" style="width: 60%;">
+            <label>Aadhar Number</label>
+
+            <input placeholder="aadhar Number" type="text" name="aadhar_Number" value="" style="width: 70%" />
+          </div>
+          <div class="FormGroup">
+            <label>Phone Number</label>
+
+            <input placeholder="phone Number" type="number" name="phone_Number" value=" " style="width: 50%" />
+          </div>
+
+        </div>
+
+        <!-- ... (other form fields) -->
+        <div class="FormGroup">
+          <label for="fathersName">Father's Name</label>
+          <input placeholder="Father's Name" type="text" name="fathers_Name" value="" />
+          <div class="ErrorMessageStyled" name="fathersName" component="div"></div>
+        </div>
+        <!--  -->
+
+        <div style="display: flex; justify-content: space-between">
+          <div style="width: 48%">
+            <div class="FormGroup">
+              <label>Correspondence Address</label>
+              <textarea placeholder="correspondence Address" name="correspondence_Address" rows="8"
+                style="width: 100%"></textarea>
+            </div>
+            <div style="display: flex; justify-content: space-between">
+              <div style="margin-right: 10px">
+                <label for="correspondenceState">State</label>
+                <input placeholder="State" name="correspondence_State" value="" />
+              </div>
+              <div>
+                <label for="correspondenceDistrict">District</label>
+                <input placeholder="District" name="correspondence_District" rows="8" value="" />
+              </div>
+              <!--  -->
+
+            </div>
+            <div style="display: flex; justify-content: space-between">
+              <div style="margin-right: 10px">
+                <label>Pincode</label>
+                <input placeholder="Pincode" type="number" name="correspondence_Pincode"
+                  value="{formData.correspondencePincode}" />
+              </div>
+            </div>
+          </div>
+          <div style="width: 48%">
+            <div class="FormGroup">
+              <label>Permanent Address</label>
+              <textarea placeholder="permanent Address" name="permanentAddress" rows="8" style="width: 100%"></textarea>
+            </div>
+            <!-- ... (other fields) -->
+            <div style="display: flex; justify-content: space-between">
+              <div style="margin-right: 10px">
+                <label for="permanentState">State</label>
+                <input placeholder="State" name="permanentState" value=""></input>
+                <div name="permanentState" class="ErrorMessageStyled" component="div"></div>
+              </div>
+              <div>
+                <label for="permanentDistrict">District</label>
+                <input placeholder="District" name="permanentDistrict" rows="8" value=""></input>
+                <div name="permanentDistrict" class="ErrorMessageStyled" component="div"></div>
+              </div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between">
+              <div style="margin-right: 10px">
+                <label for="permanentPincode">Pincode</label>
+                <input placeholder="Pincode" type="number" name="permanentPincode"
+                  value="{{formData.permanentPincode}}" />
+                <div name="permanentPincode" class="ErrorMessageStyled" component="div"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ... (remaining form fields) -->
+        <div class="FormGroup">
+          <label for="dob">Date of Birth</label>
+          <input placeholder="Date" type="date" name="dob" value="{{formData.dob}}" />
+          <div name="dob" class="ErrorMessageStyled" component="div"></div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between">
+          <div class="FormGroup">
+            <label>Category:</label>
+            <select title="select" name="Catagory" value="formData.castType" style="width: 48%">
+              <option value="">Select Type</option>
+              <option value="sc">SC</option>
+              <option value="st">ST</option>
+              <option value="gen">General</option>
+              <option value="pwds">PWDS(divyangjan)</option>
+            </select>
+          </div>
+          <div class="FormGroup">
+            <label>Marital Status:</label>
+            <select title="select" name="marital_Status" value="formData.maritalStatus" style="width: 48%">
+              <option value="">Select Marital Status</option>
+              <option value="married">Married</option>
+              <option value="unmarried">Unmarried</option>
+              <option value="widow">Widow</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- ... (other form fields) -->
+
+        <div class="FormGroup">
+          <label>Qualifications</label>
+          <table>
+            <thead>
+              <tr>
+                <th>Sr. No.</th>
+                <th>Degree</th>
+                <th>University</th>
+                <th>Year</th>
+                <th>Percentage</th>
+              </tr>
+            </thead>
+            <tbody>
+
+
+              <tr>
+                <td>1</td>
+                <td>Matric/S.S.C</td>
+                <td>
+                  <input placeholder="university" type="text" name="university" value="" />
+                </td>
+                <td>
+                  <input placeholder="year" type="number" name="year" value="" />
+                </td>
+                <td>
+                  <input placeholder="percentage" type="number" name="percentage" value="" />
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Inter/Sr. Secondary</td>
+                <td>
+                  <input placeholder="university" type="text" name="university" value="" />
+                </td>
+                <td>
+                  <input placeholder="year" type="number" name="year" value="" />
+                </td>
+                <td>
+                  <input placeholder="percentage" type="number" name="percentage" value="" />
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>B.A./B.Com./B.Sc/B.E./B.Tech.</td>
+                <td>
+                  <input placeholder="university" type="text" name="university" value="" />
+                </td>
+                <td>
+                  <input placeholder="year" type="number" name="year" value="" />
+                </td>
+                <td>
+                  <input placeholder="percentage" type="number" name="percentage" value="" />
+                </td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>
+
+                  <input placeholder="Other's (if any)" type="text" name="degree name" value="" />
+                </td>
+                <td>
+                  <input placeholder="university" type="text" name="university" value="" />
+                </td>
+                <td>
+                  <input placeholder="year" type="number" name="year" value="" />
+                </td>
+                <td>
+                  <input placeholder="percentage" type="number" name="percentage" value="" />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- ... (other form fields) -->
+
+        <div>
+          <label>Work Experience</label>
+          <table>
+            <thead>
+              <tr>
+                <th>Sr.No.</th>
+                <th>Company</th>
+                <th>Designation</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>
+                  <input placeholder="Company" type="text" name="company" />
+                </td>
+                <td>
+                  <input placeholder="designation" type="text" name="designation" />
+                </td>
+                <td class="TextSmall">
+                  <input placeholder="startDate" type="date" name="startDate" />
+                </td>
+                <td class="TextSmall">
+                  <input placeholder="endDate" type="date" name="endDate" value="{experience.endDate}" />
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>
+                  <input placeholder="Company" type="text" name="company" />
+                </td>
+                <td>
+                  <input placeholder="designation" type="text" name="designation" />
+                </td>
+                <td class="TextSmall">
+                  <input placeholder="startDate" type="date" name="startDate" />
+                </td>
+                <td class="TextSmall">
+                  <input placeholder="endDate" type="date" name="endDate" value="{experience.endDate}" />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+        <!-- ... (remaining form fields) -->
+
+        <div class="FormGroup" style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+            gap: 10px;
+          ">
+          <label>Referral</label>
+          <div class="Referral">
+            <input placeholder="Referral  (Optional)" alt="" type="text" name="Referral" value="" />
+          </div>
+          <!-- <span style="font-size: 0.8rem"><i>(Optional)</i></span> -->
+        </div>
+
+        <div class="FormGroup">
+          <label style="display: flex">
+            <input class="CheckBox" type="checkbox" checked="TermCondition" />
+            <p style="margin-left: 10px"><a href="Terms.html" class="click-here">I agree to the terms and conditions
+              </a></p>
+
+          </label>
+        </div>
+
+        <div style="
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            /* background: red; */
+          ">
+          <!-- <a href="success.html">Success</a> -->
+
+          <button class="submitbtn" id="next">
+            Next
+          </button>
+        </div>
+        <!-- </form> -->
+
+
+      </div>
+    </div>
+    <!-- ---------------------------------------------------------------------------------------- -->
+    <div class="paymentpage">
+      <div
+        style="width: 100%; display: flex; flex-direction: column; align-items: center; height:100%; border-radius:10px; font-size: 2rem; box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.356);">
+        <div style="width: 90%; display: flex; justify-content: space-between; align-items: center;">
+          <h4>PAYMENT REQUEST </h4>
+          <img style="width: 200px;height:100px;" class="nav-logo" src="./images/bottom-img-1@2x.png" alt="">
+
+        </div>
+        <h3 style="text-align: center;">MITHSHA VYAPAR SANCHAR </h3>
+        <div style="width: 90%; display: flex; justify-content: space-between; align-items: center;">
+
+          <p>Payment for form fee</p>
+          <p>Amount Payable
+            <span style="color: blue;"> Rs. 232</span>
+          </p>
+          <p>Payment due date
+            <span id="paymentDueDate" style="color: red;"> 06 Sep 2023 </span>
+          </p>
+        </div>
+        <div style="width: 100%; height: 40%; display: flex; justify-content: center; align-items: center;">
+          <ul style="width: 80%; display: flex; justify-content: space-around; align-items: center;">
+            <li style="list-style: none;font-size: 25px; "><a
+                style="color:rgb(0, 0, 0); text-decoration: none; outline: none; " href=""> PAYMENT MODE : </a>
+            </li>
+            <li id="qrLink"
+              style="list-style: none;font-size: 28px; padding: 15px 50px; background: blue; border-radius: 10px;">
+              <a style="color:rgb(248, 248, 248); text-decoration: none; outline: none; " href=""> By
+                QR</a>
+            </li>
+            <li id="UPILink"
+              style="list-style: none;font-size: 28px; padding: 15px 50px; background: blue; border-radius: 10px;">
+              <a style="color:rgb(255, 255, 255); text-decoration: none; outline: none; " href="">
+                VIA UPI ID</a>
+            </li>
+            <li id="BANKLink"
+              style="list-style: none;font-size: 28px; padding: 15px 50px; background: blue; border-radius: 10px;">
+              <a style="color:rgb(255, 255, 255); text-decoration: none; outline: none; " href="">VIA
+                ACCOUNT & IFSC</a>
+            </li>
+          </ul>
+        </div>
+        <div style="width: 80%; display: flex; justify-content: center; gap: 50px; align-items: center;">
+
+          <h3>Transection Id</h3>
+          <input placeholder="Enter Transection ID" style="padding: 10px; border-radius: 5px;" class="TransectionID"
+            id="trasectionId" required />
+        </div>
+
+        <button type="submit" onclick="sendMail()" class="submitbtn">
+          Submit
+        </button>
+
+        <div class="qr  ">
+
+          <!-- <div
+              style=" display: flex; justify-content: center; align-items: center; "> -->
+          <div
+            style=" top: 50%;
+                  left: 50%;
+                  transform: translate(-50% ,-50%);width: 505px; padding: 30px;background: rgba(245, 222, 179, 0.527); border-radius: 10px; position: relative; ">
+
+
+            <div style="display: flex; justify-content: end; font-size: 20px; margin: 10px 0; cursor: pointer;"
+              class="closebtn">
+              close
+            </div>
+            <img style="width: 500px;height:500px;" class="nav-logo" src="./images/WhatsAppImagasd.jpg" alt="">
+          </div>
+        </div>
+        <div class="UPI  ">
+
+          <div style=" display: flex;align-items: center; height: 50%;">
+            <div
+              style=" top: 50%;
+                  left: 50%;
+                  transform: translate(-50% ,-50%); padding: 30px;background: rgba(245, 222, 179, 0.527); border-radius: 10px; position: relative; ">
+
+
+              <div style="display: flex; justify-content: end; font-size: 20px; margin: 10px 0; cursor: pointer;"
+                class="closebtn">
+                close
+              </div>
+              <div style="display: flex; align-items: center;gap: 20px;">
+                <h3>UPI:</h3>
+                <h2 style="color: blue;"> POS.11261350@INDUS</h2>
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+
+        <div class="Details">
+
+          <div style=" display: flex;align-items: center; transform: translate(0,60%);">
+            <div
+              style=" top: 50%;
+                  left: 50%;
+                  transform: translate(-50% ,-50%); padding: 30px;background: rgba(245, 222, 179, 0.527); border-radius: 10px; position: relative; ">
+
+
+              <div style="display: flex; justify-content: end; font-size: 20px; margin: 10px 0; cursor: pointer;"
+                class="closebtn">
+                close
+              </div>
+              <h3 style="border-bottom: 1px;"> Account Detail -</h3>
+              <div style="display: flex; flex-direction: column;">
+                <div class="ppp">
+                  <h5>Account Number</h5> - <p>250108111111</p>
+                </div>
+                <div class="ppp">
+                  <h5>IFSC Code</h5> - <p>INDB0000866</p>
+                </div>
+                <div class="ppp">
+                  <h5>Name </h5> - <p style="font-size: 25px">MITHSHA VYAPAR SANCHAR PVT. LTD.</p>
+                </div>
+                <div class="ppp">
+                  <h5>Account Type</h5> - <p>Current</p>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+      <!-- </form> -->
+    </div>
+
+    <!-- <script type="text/javascript">
+      let url =
+        "https://script.google.com/macros/s/AKfycbyc7bCiACL3zARFq4B5lxuK1DZitHtN2mAloGZoMrdJKpHy_yeHUFRovuymabrFCPPZLw/exec";
+      let fileInput = document.querySelector("#imageInput"); // Replace with your input element's ID
+      let submitButton = document.querySelector("#submitbtn"); // Replace with your input element's ID
+      const form = document.querySelector("#applicationForm");
+      const trasectionId = document.querySelector(".TransectionID");
+
+      submitButton.addEventListener("click", () => {
+        // Inside the event listener, handle the file selection and fetch request.
+        let file = fileInput.files[0];
+        event.preventDefault();
+
+        //  FORMDATA
+        const formData = new FormData(form);
+
+        if (file) {
+          let fr = new FileReader();
+
+          let formData = new FormData(); // Create a new FormData object here
+
+          fr.addEventListener("loadend", () => {
+            let res = fr.result;
+            let spt = res.split("base64,")[1];
+
+            formData.append("base64", spt);
+            formData.append("type", file.type);
+            formData.append("name", file.name);
+            console.log(formData)
+            // formData.append("TrasectionID", trasectionId);
+            console.log("Submitting file...");
+            fetch(url, {
+              method: "POST",
+              body: formData, // Use the FormData object directly
+            })
+              .then((response) => response.text())
+              .then((data) => console.log(data))
+              .catch((error) => console.error("Error:", error));
+          });
+          fr.readAsDataURL(file);
+
+        } else {
+          console.log("No file selected.");
+        }
+      });
+
+      function handleCheckboxClick(checkboxType) {
+        const vyaparMitraCheckbox = document.querySelector(
+          "[onclick*='VyaparMitra']"
+        );
+        const superVisiorCheckbox = document.querySelector(
+          "[onclick*='SuperVisior']"
+        );
+        const formTypeInput = document.getElementById("Form_Type");
+
+        if (checkboxType === "VyaparMitra") {
+          vyaparMitraCheckbox.checked = true;
+          superVisiorCheckbox.checked = false;
+          formTypeInput.value = "VyaparMitra"; // Set the value to "VyaparMitra"
+        } else if (checkboxType === "SuperVisior") {
+          superVisiorCheckbox.checked = true;
+          vyaparMitraCheckbox.checked = false;
+          formTypeInput.value = "SuperVisior"; // Set the value to "SuperVisior"
+        }
+      }
+
+    </script> -->
+    <!-- <script src="./script.js"></script> -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Get references to the elements
+        var qrLink = document.querySelector("#qrLink");
+        var qrSection = document.querySelector(".qr");
+        var UPILink = document.querySelector("#UPILink");
+        var upiSection = document.querySelector(".UPI");
+        var BANKLink = document.querySelector("#BANKLink");
+        var accountSection = document.querySelector(".Details");
+        var closeButtons = document.querySelectorAll(".closebtn");
+        var paymentpage = document.querySelector(".paymentpage");
+        var next = document.querySelector("#next");
+
+        next.addEventListener("click", function (event) {
+          event.preventDefault();
+          paymentpage.style.display = "block";
+          console.log("Click Next")
+        })
+
+        // Add click event listener to "By QR" link
+        qrLink.addEventListener("click", function (event) {
+          event.preventDefault(); // Prevent the link from navigating
+          qrSection.style.display = "block"; // Display the QR section
+          upiSection.style.display = "none"; // Hide the UPI section
+          accountSection.style.display = "none"; // Hide the Account section
+        });
+
+        UPILink.addEventListener("click", function (event) {
+          event.preventDefault(); // Prevent the link from navigating
+          upiSection.style.display = "block"; // Display the QR section
+          qrSection.style.display = "none"; // Hide the QR section
+          accountSection.style.display = "none"; // Hide the Account section
+        });
+
+        BANKLink.addEventListener("click", function (event) {
+          event.preventDefault(); // Prevent the link from navigating
+          accountSection.style.display = "block"; // Display the QR section
+          qrSection.style.display = "none"; // Hide the QR section
+          upiSection.style.display = "none"; // Hide the UPI section
+        });
+
+        // Add click event listener for close buttons using event delegation
+        document.addEventListener("click", function (event) {
+          if (event.target.classList.contains("closebtn")) {
+            qrSection.style.display = "none"; // Hide the QR section
+            upiSection.style.display = "none"; // Hide the UPI section
+            accountSection.style.display = "none"; // Hide the Account section
+          }
+        });
+
+        var paymentDueDateSpan = document.querySelector("#paymentDueDate");
+
+        // Update the content of the <span> element with the current date
+        var currentDate = new Date();
+        var options = { year: 'numeric', month: 'short', day: 'numeric' };
+        var formattedDate = currentDate.toLocaleDateString('en-US', options);
+        paymentDueDateSpan.textContent = formattedDate;
+      });
+    </script>
+</body>
+
+</html>
