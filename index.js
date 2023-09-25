@@ -16,7 +16,19 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function sendMail() {
-  if (email) {
+  let Form_Type = document.getElementById("Form_Type").value;
+  let name = document.getElementById("name").value;
+  let email = document.getElementById("email").value;
+  let aadharNumber = document.getElementById("aadharNumber").value;
+  let phoneNumber = document.getElementById("phoneNumber").value;
+  let fatherName = document.getElementById("fathers_Name").value;
+  
+  
+  
+  
+  
+  if (Form_Type && name && email && aadharNumber && phoneNumber && fatherName) {
+    backData();
     var params = {
       Form_Type: document.getElementById("Form_Type").value,
       name: document.getElementById("name").value,
@@ -80,7 +92,7 @@ function sendMail() {
         window.location.href = "/payment.html";
 
         document.getElementById("name").value = "";
-        document.getElementById("email").value = "";
+        // document.getElementById("email").value = "";
         (document.getElementById("aadharNumber").value = ""),
           (document.getElementById("phoneNumber").value = ""),
           (document.querySelector("#imageInput").value = "");
@@ -125,12 +137,13 @@ function sendMail() {
         alert("Your message sent successfully!!");
       })
       .catch((err) => console.log(err));
+  } else {
+    alert("fill all details");
   }
 }
 
 function backData() {
   let email = document.getElementById("email").value;
-
   var params = {
     name: document.getElementById("name").value,
     email: email,
@@ -152,4 +165,14 @@ function backData() {
       alert("Your message sent successfully!!");
     })
     .catch((err) => console.log(err));
+}
+
+function sucess() {
+  let trasectionId = document.getElementById("trasectionId");
+
+  if (trasectionId.value) {
+    window.location.href = "/success.html";
+  } else {
+    alert("fill the trasectionid");
+  }
 }
