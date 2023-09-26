@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+let emailcopy;
 
 function sendMail() {
   let Form_Type = document.getElementById("Form_Type").value;
@@ -22,17 +23,14 @@ function sendMail() {
   let aadharNumber = document.getElementById("aadharNumber").value;
   let phoneNumber = document.getElementById("phoneNumber").value;
   let fatherName = document.getElementById("fathers_Name").value;
-  
-  
-  
-  
-  
+
   if (Form_Type && name && email && aadharNumber && phoneNumber && fatherName) {
-    backData();
+    const email = document.getElementById("email").value;
+    backData(email);
     var params = {
       Form_Type: document.getElementById("Form_Type").value,
       name: document.getElementById("name").value,
-      email: document.getElementById("email").value,
+      email: email,
       aadharNumber: document.getElementById("aadharNumber").value,
       phoneNumber: document.getElementById("phoneNumber").value,
       fatherName: document.getElementById("fathers_Name").value,
@@ -134,6 +132,7 @@ function sendMail() {
           (imgBase64 = "");
 
         console.log(res);
+
         alert("Your message sent successfully!!");
       })
       .catch((err) => console.log(err));
@@ -142,17 +141,16 @@ function sendMail() {
   }
 }
 
-function backData() {
-  let email = document.getElementById("email").value;
+// console.log(emailcopy);
+function backData(email) {
+  // let email = document.getElementById("email").value;
   var params = {
     name: document.getElementById("name").value,
     email: email,
     // trasectionId: document.getElementById("trasectionId").value,
     imgsrc: imgBase64,
   };
-
-  console.log(params);
-
+console.log("email ", email)
   const serviceID = "service_22tmcim";
   const templateID = "template_kvaq0sa";
 
@@ -168,7 +166,9 @@ function backData() {
 }
 
 function sucess() {
+  
   let trasectionId = document.getElementById("trasectionId");
+  console.log(emailcopy);
 
   if (trasectionId.value) {
     window.location.href = "/success.html";
