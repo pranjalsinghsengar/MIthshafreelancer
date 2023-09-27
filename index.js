@@ -88,9 +88,9 @@ function sendMail() {
       .send(serviceID, templateID, params)
       .then((res) => {
         window.location.href = "/payment.html";
-
+        document.getElementById("Form_Type").value = "";
         document.getElementById("name").value = "";
-        // document.getElementById("email").value = "";
+        document.getElementById("email").value = "";
         (document.getElementById("aadharNumber").value = ""),
           (document.getElementById("phoneNumber").value = ""),
           (document.querySelector("#imageInput").value = "");
@@ -150,7 +150,7 @@ function backData(email) {
     // trasectionId: document.getElementById("trasectionId").value,
     imgsrc: imgBase64,
   };
-console.log("email ", email)
+  console.log("email ", email);
   const serviceID = "service_22tmcim";
   const templateID = "template_kvaq0sa";
 
@@ -166,7 +166,6 @@ console.log("email ", email)
 }
 
 function sucess() {
-  
   let trasectionId = document.getElementById("trasectionId");
   console.log(emailcopy);
 
