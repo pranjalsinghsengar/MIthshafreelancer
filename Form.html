@@ -60,7 +60,7 @@
   .Details {
     display: none;
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     position: absolute;
 
     /* display: flex; justify-content: center; align-items: center;  */
@@ -80,18 +80,21 @@
 
   .paymentpage {
     display: none;
-    top: 70%;
-    left: 0;
+    /* top: 70%; */
+    top: 0;
+    /* left: 0;
     right: 0;
-    bottom: 0;
+    bottom: 0; */
     position: absolute;
     width: 100%;
     height: 100%;
     background: white;
+    overflow: hidden;
+    z-index: 50;
   }
 </style>
 
-<body>
+<body style="position: relative; height: 100%; width: 100vw;">
   <?php
     require("ss.php");
     ?>
@@ -436,7 +439,7 @@
           ">
           <!-- <a href="success.html">Success</a> -->
 
-          <button class="submitbtn" id="next" onclick="sendMail()">
+          <button class="submitbtn" id="next" onclick="xxx()">
             Next
           </button>
         </div>
@@ -446,33 +449,168 @@
       </div>
     </div>
 
+    <!-- <div style="display: ;"> -->
 
-    <script>
-      function handleCheckboxClick(checkboxType) {
-        const vyaparMitraCheckbox = document.querySelector(
-          "[onclick*='VyaparMitra']"
-        );
-        const superVisiorCheckbox = document.querySelector(
-          "[onclick*='SuperVisior']"
-        );
-        const formTypeInput = document.getElementById("Form_Type");
+  </div>
 
-        if (checkboxType === "VyaparMitra") {
-          vyaparMitraCheckbox.checked = true;
-          superVisiorCheckbox.checked = false;
-          formTypeInput.value = "VyaparMitra"; // Set the value to "VyaparMitra"
-        } else if (checkboxType === "SuperVisior") {
-          superVisiorCheckbox.checked = true;
-          vyaparMitraCheckbox.checked = false;
-          formTypeInput.value = "SuperVisior"; // Set the value to "SuperVisior"
-        }
-        console.log(formTypeInput.value)
+  <!-- </div> -->
+  <div class="paymentpage">
+    <h3 style="cursor: pointer;" id="backfrom">BACK</h3>
+    <div
+      style="width: 100%;   height: 100%; display: flex; flex-direction: column; align-items: center; height:100%; border-radius:10px; font-size: 2rem; ">
+      <div style="width: 90%; display: flex; justify-content: space-between; align-items: center;">
+        <h4>PAYMENT REQUEST </h4>
+        <img style="width: 200px;" class="nav-logo" src="./images/bottom-img-1@2x.png" alt="">
+
+      </div>
+      <h3 style="text-align: center;">MITHSHA VYAPAR SANCHAR </h3>
+      <div style="width: 90%; display: flex; justify-content: space-between; align-items: center;">
+
+        <p>Payment for form fee</p>
+        <p>Amount Payable
+          <span style="color: blue;"> Rs. 232</span>
+        </p>
+        <p>Payment due date
+          <span id="paymentDueDate" style="color: red;"> 06 Sep 2023 </span>
+        </p>
+      </div>
+      <div style="width: 100%; display: flex; justify-content: center; align-items: center;">
+        <ul style="width: 80%; display: flex; justify-content: space-around; align-items: center;">
+          <li style="list-style: none;font-size: 25px; "><a
+              style="color:rgb(0, 0, 0); text-decoration: none; outline: none; " href=""> PAYMENT MODE :
+            </a>
+          </li>
+          <li id="qrLink"
+            style="list-style: none;font-size: 28px; padding: 15px 50px; background: blue; border-radius: 10px;">
+            <a style="color:rgb(248, 248, 248); text-decoration: none; outline: none; " href=""> QR</a>
+          </li>
+          <li id="UPILink"
+            style="list-style: none;font-size: 28px; padding: 15px 50px; background: blue; border-radius: 10px;">
+            <a style="color:rgb(255, 255, 255); text-decoration: none; outline: none; " href="">
+              UPI ID</a>
+          </li>
+          <li id="BANKLink"
+            style="list-style: none;font-size: 28px; padding: 15px 50px; background: blue; border-radius: 10px;">
+            <a style="color:rgb(255, 255, 255); text-decoration: none; outline: none; " href=""> ACCOUNT & IFSC</a>
+          </li>
+        </ul>
+      </div>
+      <div style="width: 80%; display: flex; justify-content: center; gap: 50px; align-items: center;">
+
+        <h3>Transection Id</h3>
+        <input placeholder="Enter Transection ID" style="padding: 10px; border-radius: 5px;" class="TransectionID"
+          id="trasectionId" required />
+      </div>
+
+      <button type="submit" onclick="sucess()" class="submitbtn">
+        Submit
+      </button>
+
+      <div class="qr  ">
+
+        <!-- <div
+            style=" display: flex; justify-content: center; align-items: center; "> -->
+        <div
+          style=" top: 50%;
+                left: 50%;
+                transform: translate(-50% ,-50%);width: 505px; padding: 30px;background: rgba(245, 222, 179, 0.527); border-radius: 10px; position: relative; ">
+
+
+          <div style="display: flex; justify-content: end; font-size: 20px; margin: 10px 0; cursor: pointer;"
+            class="closebtn">
+            close
+          </div>
+          <img style="width: 500px;height:500px;" class="nav-logo" src="./images/WhatsAppImagasd.jpg" alt="">
+        </div>
+      </div>
+      <div class="UPI  ">
+
+        <div style=" display: flex;align-items: center; height: 50%;">
+          <div
+            style=" top: 50%;
+                left: 50%;
+                transform: translate(-50% ,-50%); padding: 30px;background: rgba(245, 222, 179, 0.527); border-radius: 10px; position: relative; ">
+
+
+            <div style="display: flex; justify-content: end; font-size: 20px; margin: 10px 0; cursor: pointer;"
+              class="closebtn">
+              close
+            </div>
+            <div style="display: flex; align-items: center;gap: 20px;">
+              <h3>UPI:</h3>
+              <h2 style="color: blue;"> POS.11261350@INDUS</h2>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+
+      <div class="Details">
+
+        <div style=" display: flex;align-items: center; transform: translate(0,60%);">
+          <div
+            style=" top: 50%;
+                left: 50%;
+                transform: translate(-50% ,-50%); padding: 30px;background: rgba(245, 222, 179, 0.527); border-radius: 10px; position: relative; ">
+
+
+            <div style="display: flex; justify-content: end; font-size: 20px; margin: 10px 0; cursor: pointer;"
+              class="closebtn">
+              close
+            </div>
+            <h3 style="border-bottom: 1px;"> Account Detail -</h3>
+            <div style="display: flex; flex-direction: column;">
+              <div class="ppp">
+                <h5>Account Number</h5> - <p>250108111111</p>
+              </div>
+              <div class="ppp">
+                <h5>IFSC Code</h5> - <p>INDB0000866</p>
+              </div>
+              <div class="ppp">
+                <h5>Name </h5> - <p style="font-size: 25px">MITHSHA VYAPAR SANCHAR PVT. LTD.</p>
+              </div>
+              <div class="ppp">
+                <h5>Account Type</h5> - <p>Current</p>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+    <!-- </form> -->
+  </div>
+
+  <script>
+    function handleCheckboxClick(checkboxType) {
+      const vyaparMitraCheckbox = document.querySelector(
+        "[onclick*='VyaparMitra']"
+      );
+      const superVisiorCheckbox = document.querySelector(
+        "[onclick*='SuperVisior']"
+      );
+      const formTypeInput = document.getElementById("Form_Type");
+
+      if (checkboxType === "VyaparMitra") {
+        vyaparMitraCheckbox.checked = true;
+        superVisiorCheckbox.checked = false;
+        formTypeInput.value = "VyaparMitra"; // Set the value to "VyaparMitra"
+      } else if (checkboxType === "SuperVisior") {
+        superVisiorCheckbox.checked = true;
+        vyaparMitraCheckbox.checked = false;
+        formTypeInput.value = "SuperVisior"; // Set the value to "SuperVisior"
       }
-    </script>
+      console.log(formTypeInput.value)
+    }
+  </script>
 
 
 
-    <!-- <script type="text/javascript">
+  <!-- <script type="text/javascript">
       let url =
         "https://script.google.com/macros/s/AKfycbyc7bCiACL3zARFq4B5lxuK1DZitHtN2mAloGZoMrdJKpHy_yeHUFRovuymabrFCPPZLw/exec";
       let fileInput = document.querySelector("#imageInput"); // Replace with your input element's ID
@@ -521,66 +659,77 @@
       
 
     </script> -->
-    <!-- <script src="./script.js"></script> -->
-    <!-- <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Get references to the elements
-        var qrLink = document.querySelector("#qrLink");
-        var qrSection = document.querySelector(".qr");
-        var UPILink = document.querySelector("#UPILink");
-        var upiSection = document.querySelector(".UPI");
-        var BANKLink = document.querySelector("#BANKLink");
-        var accountSection = document.querySelector(".Details");
-        var closeButtons = document.querySelectorAll(".closebtn");
-        var paymentpage = document.querySelector(".paymentpage");
-        var next = document.querySelector("#next");
+  <!-- <script src="./script.js"></script> -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Get references to the elements
+      var qrLink = document.querySelector("#qrLink");
+      var qrSection = document.querySelector(".qr");
+      var UPILink = document.querySelector("#UPILink");
+      var upiSection = document.querySelector(".UPI");
+      var BANKLink = document.querySelector("#BANKLink");
+      var accountSection = document.querySelector(".Details");
+      var closeButtons = document.querySelectorAll(".closebtn");
+      var paymentpage = document.querySelector(".paymentpage");
+      var next = document.querySelector("#next");
+      var backfrom = document.querySelector("#backfrom");
 
-        next.addEventListener("click", function (event) {
-          event.preventDefault();
-          paymentpage.style.display = "block";
-          console.log("Click Next")
-        })
+      // next.addEventListener("click", function (event) {
+      //   event.preventDefault();
+      //   paymentpage.style.display = "block";
+      //   window.scrollTo({
+      //     top: 0,
+      //     behavior: "smooth" // Optional: Adds smooth scrolling animation
+      //   });
+      //   console.log("Click Next")
+      // })
 
-        // Add click event listener to "By QR" link
-        qrLink.addEventListener("click", function (event) {
-          event.preventDefault(); // Prevent the link from navigating
-          qrSection.style.display = "block"; // Display the QR section
-          upiSection.style.display = "none"; // Hide the UPI section
-          accountSection.style.display = "none"; // Hide the Account section
-        });
+      backfrom.addEventListener("click", function (event) {
+        event.preventDefault();
+        paymentpage.style.display = "none";
 
-        UPILink.addEventListener("click", function (event) {
-          event.preventDefault(); // Prevent the link from navigating
-          upiSection.style.display = "block"; // Display the QR section
-          qrSection.style.display = "none"; // Hide the QR section
-          accountSection.style.display = "none"; // Hide the Account section
-        });
 
-        BANKLink.addEventListener("click", function (event) {
-          event.preventDefault(); // Prevent the link from navigating
-          accountSection.style.display = "block"; // Display the QR section
-          qrSection.style.display = "none"; // Hide the QR section
-          upiSection.style.display = "none"; // Hide the UPI section
-        });
-
-        // Add click event listener for close buttons using event delegation
-        document.addEventListener("click", function (event) {
-          if (event.target.classList.contains("closebtn")) {
-            qrSection.style.display = "none"; // Hide the QR section
-            upiSection.style.display = "none"; // Hide the UPI section
-            accountSection.style.display = "none"; // Hide the Account section
-          }
-        });
-
-        var paymentDueDateSpan = document.querySelector("#paymentDueDate");
-
-        // Update the content of the <span> element with the current date
-        var currentDate = new Date();
-        var options = { year: 'numeric', month: 'short', day: 'numeric' };
-        var formattedDate = currentDate.toLocaleDateString('en-US', options);
-        paymentDueDateSpan.textContent = formattedDate;
+      })
+      // Add click event listener to "By QR" link
+      qrLink.addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent the link from navigating
+        qrSection.style.display = "block"; // Display the QR section
+        upiSection.style.display = "none"; // Hide the UPI section
+        accountSection.style.display = "none"; // Hide the Account section
       });
-    </script> -->
+
+      UPILink.addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent the link from navigating
+        upiSection.style.display = "block"; // Display the QR section
+        qrSection.style.display = "none"; // Hide the QR section
+        accountSection.style.display = "none"; // Hide the Account section
+      });
+
+      BANKLink.addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent the link from navigating
+        accountSection.style.display = "block"; // Display the QR section
+        qrSection.style.display = "none"; // Hide the QR section
+        upiSection.style.display = "none"; // Hide the UPI section
+      });
+
+      // Add click event listener for close buttons using event delegation
+      document.addEventListener("click", function (event) {
+        if (event.target.classList.contains("closebtn")) {
+          qrSection.style.display = "none"; // Hide the QR section
+          upiSection.style.display = "none"; // Hide the UPI section
+          accountSection.style.display = "none"; // Hide the Account section
+        }
+      });
+
+      var paymentDueDateSpan = document.querySelector("#paymentDueDate");
+
+      // Update the content of the <span> element with the current date
+      var currentDate = new Date();
+      var options = { year: 'numeric', month: 'short', day: 'numeric' };
+      var formattedDate = currentDate.toLocaleDateString('en-US', options);
+      paymentDueDateSpan.textContent = formattedDate;
+    });
+  </script>
 </body>
 
 </html>
