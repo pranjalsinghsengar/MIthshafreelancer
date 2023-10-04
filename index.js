@@ -92,13 +92,14 @@ function sendMail() {
     cmpny2_startDate: document.getElementById("cmpny2_startDate").value,
     cmpny2_endDate: document.getElementById("cmpny2_endDate").value,
 
-    Referral: document.getElementById("Referral").value,
+    Referral: document.getElementById("Ref").value,
 
     // imgsrc: imgBase64,
   };
 
   console.log(params);
-  console.log(transactionId);
+  console.log("transactionId", transactionId);
+  // console.log("Referral", ref);
 
   const serviceID = "service_22tmcim";
   const templateID = "template_k8wuzv5";
@@ -147,7 +148,7 @@ function sendMail() {
         (document.getElementById("cmpny2_designation").value = ""),
         (document.getElementById("cmpny2_startDate").value = ""),
         (document.getElementById("cmpny2_endDate").value = ""),
-        (document.getElementById("Referral").value = ""),
+        (document.getElementById("Ref").value = ""),
         (imgBase64 = "");
       console.log(res);
 
